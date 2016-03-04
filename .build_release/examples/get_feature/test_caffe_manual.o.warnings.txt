@@ -1,0 +1,39 @@
+examples/get_feature/test_caffe_manual.cpp: In function ‘int main(int, char**)’:
+examples/get_feature/test_caffe_manual.cpp:65:19: warning: deprecated conversion from string constant to ‘char*’ [-Wwrite-strings]
+     char *proto = "H:\\Models\\Caffe\\deploy.prototxt";
+                   ^
+examples/get_feature/test_caffe_manual.cpp:66:19: warning: deprecated conversion from string constant to ‘char*’ [-Wwrite-strings]
+     char *model = "H:\\Models\\Caffe\\bvlc_reference_caffenet.caffemodel";
+                   ^
+examples/get_feature/test_caffe_manual.cpp:67:23: warning: deprecated conversion from string constant to ‘char*’ [-Wwrite-strings]
+     char *mean_file = "H:\\Models\\Caffe\\imagenet_mean.binaryproto";
+                       ^
+examples/get_feature/test_caffe_manual.cpp:97:55: error: ‘>>’ should be ‘> >’ within a nested template argument list
+     const std::vector<boost::shared_ptr<Layer<float>  >> layers = net->layers();
+                                                       ^
+examples/get_feature/test_caffe_manual.cpp:98:48: error: ‘>>’ should be ‘> >’ within a nested template argument list
+     std::vector<boost::shared_ptr<Blob<float>  >> net_blobs = net->blobs();
+                                                ^
+examples/get_feature/test_caffe_manual.cpp:113:48: error: ‘>>’ should be ‘> >’ within a nested template argument list
+     std::vector<boost::shared_ptr<Blob<float>  >> layer_blobs;
+                                                ^
+examples/get_feature/test_caffe_manual.cpp:129:30: warning: deprecated conversion from string constant to ‘char*’ [-Wwrite-strings]
+     char *query_layer_name = "conv1";
+                              ^
+examples/get_feature/test_caffe_manual.cpp:133:48: error: ‘>>’ should be ‘> >’ within a nested template argument list
+     std::vector<boost::shared_ptr<Blob<float>  >> blobs = layer->blobs();
+                                                ^
+examples/get_feature/test_caffe_manual.cpp:169:29: warning: deprecated conversion from string constant to ‘char*’ [-Wwrite-strings]
+     char *query_blob_name = "conv1"; /* data, conv1, pool1, norm1, fc6, prob, etc */
+                             ^
+examples/get_feature/test_caffe_manual.cpp:177:26: warning: deprecated conversion from string constant to ‘char*’ [-Wwrite-strings]
+     char* weights_file = "bvlc_reference_caffenet_new.caffemodel";
+                          ^
+examples/get_feature/test_caffe_manual.cpp: In function ‘unsigned int get_layer_index(boost::shared_ptr<caffe::Net<float> >&, char*)’:
+examples/get_feature/test_caffe_manual.cpp:19:1: warning: control reaches end of non-void function [-Wreturn-type]
+ }
+ ^
+examples/get_feature/test_caffe_manual.cpp: In function ‘unsigned int get_blob_index(boost::shared_ptr<caffe::Net<float> >&, char*)’:
+examples/get_feature/test_caffe_manual.cpp:33:1: warning: control reaches end of non-void function [-Wreturn-type]
+ }
+ ^
