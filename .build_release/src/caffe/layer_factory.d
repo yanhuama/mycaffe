@@ -30,6 +30,7 @@
  include/caffe/layers/power_layer.hpp \
  include/caffe/layers/neuron_layer.hpp \
  include/caffe/layers/split_layer.hpp include/caffe/layers/relu_layer.hpp \
+ include/caffe/layers/brelu_layer.hpp \
  include/caffe/layers/sigmoid_layer.hpp \
  include/caffe/layers/softmax_layer.hpp \
  include/caffe/layers/tanh_layer.hpp \
@@ -126,6 +127,8 @@ include/caffe/layers/neuron_layer.hpp:
 include/caffe/layers/split_layer.hpp:
 
 include/caffe/layers/relu_layer.hpp:
+
+include/caffe/layers/brelu_layer.hpp:
 
 include/caffe/layers/sigmoid_layer.hpp:
 

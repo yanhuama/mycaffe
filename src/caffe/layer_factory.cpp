@@ -11,6 +11,7 @@
 #include "caffe/layers/lrn_layer.hpp"
 #include "caffe/layers/pooling_layer.hpp"
 #include "caffe/layers/relu_layer.hpp"
+#include "caffe/layers/brelu_layer.hpp"
 #include "caffe/layers/sigmoid_layer.hpp"
 #include "caffe/layers/softmax_layer.hpp"
 #include "caffe/layers/tanh_layer.hpp"
@@ -144,6 +145,23 @@ shared_ptr<Layer<Dtype> > GetReLULayer(const LayerParameter& param) {
 }
 
 REGISTER_LAYER_CREATOR(ReLU, GetReLULayer);
+
+
+// Get relu layer according to engine.
+template <typename Dtype>
+shared_ptr<Layer<Dtype> > GetBReLULayer(const LayerParameter& param) {
+  BReLUParameter_Engine engine = param.brelu_param().engine();
+  if (engine == BReLUParameter_Engine_DEFAULT) {
+    engine = BReLUParameter_Engine_CAFFE;
+  }
+  if (engine == BReLUParameter_Engine_CAFFE) {
+    return shared_ptr<Layer<Dtype> >(new BReLULayer<Dtype>(param));
+  } else {
+    LOG(FATAL) << "Layer " << param.name() << " has unknown engine.";
+  }
+}
+
+REGISTER_LAYER_CREATOR(BReLU, GetBReLULayer);
 
 // Get sigmoid layer according to engine.
 template <typename Dtype>
