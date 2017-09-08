@@ -9,7 +9,7 @@ template <typename Dtype>
 __global__ void BReLUForward(const int n, const Dtype* in, Dtype* out,
     Dtype minval, Dtype maxval) {
   CUDA_KERNEL_LOOP(index, n) {
-    out[index] = in[index] < 1 ? (in[index] > 0 ? in[index] : in[index] * minval) : maxval;
+    out[index] = in[index] < maxval ? (in[index] > minval ? in[index] : minval) : maxval;
   }
 }
 
@@ -36,8 +36,7 @@ template <typename Dtype>
 __global__ void BReLUBackward(const int n, const Dtype* in_diff,
     const Dtype* in_data, Dtype* out_diff, Dtype minval, Dtype maxval) {
   CUDA_KERNEL_LOOP(index, n) {
-    out_diff[index] = in_diff[index] * ((in_data[index] > 0 && in_data[index] <= 1)
-        + (in_data[index] <= 0 || in_data[index] >= maxval) * minval);
+    out_diff[index] = in_diff[index] * ((in_data[index] > minval && in_data[index] <= maxval);
   }
 }
 
